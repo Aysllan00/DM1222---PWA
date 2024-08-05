@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Team Builder</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#pokemon-grid-section">Pokémons</a></li>
+                <li><a href="#teams-section">Time</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="pokemon-details" class="sidebar">
+            <h2>Detalhes do Pokémon</h2>
+            <div id="pokemon-info">
+                <h3 id="pokemon-name"></h3>
+                <img id="pokemon-image" src="" alt="" style="width: 100px;">
+                <div id="pokemon-type"></div>
+                <div id="pokemon-stats"></div>
+            </div>
+        </div>
+        <div class="content">
+            <section id="pokemon-grid-section">
+                <h1>Pokémons Disponíveis</h1>
+                <div id="pokemon-grid"></div>
+            </section>
+            <section id="teams-section">
+                <div class="title-container">
+                    <h2>Seus Times</h2>
+                </div>
+                <button id="create-team-btn">Criar Novo Time</button>
+                <div id="teams"></div>
+            </section>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/dexie@3.2.0/dist/dexie.min.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>
