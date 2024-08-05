@@ -1,10 +1,10 @@
 const CACHE_NAME = 'pokemon-cache-v1';
 const urlsToCache = [
   '/',
-  '/index.html',
-  '/styles.css',
-  '/script.js',
-  '/sw.js',
+  '/docs/index.html',
+  '/docs/styles.css',
+  '/docs/script.js',
+  '/docs/sw.js',
   'https://cdn.jsdelivr.net/npm/dexie@3.2.0/dist/dexie.min.js'
 ];
 
