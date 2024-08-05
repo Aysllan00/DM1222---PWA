@@ -1,10 +1,10 @@
 const CACHE_NAME = 'pokemon-cache-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/styles.css',
-  '/script.js',
-  '/sw.js',
+  '/DM1222---PWA/',
+  '/DM1222---PWA/index.html',
+  '/DM1222---PWA/styles.css',
+  '/DM1222---PWA/script.js',
+  '/DM1222---PWA/sw.js',
   'https://cdn.jsdelivr.net/npm/dexie@3.2.0/dist/dexie.min.js'
 ];
 
@@ -18,7 +18,18 @@ self.addEventListener('install', event => {
         caches.open(CACHE_NAME)
             .then(cache => {
                 console.log('Opened cache');
-                return cache.addAll(urlsToCache);
+                return cache.addAll(urlsToCache)
+                    .catch(error => {
+                        console.error('Falha ao adicionar arquivos ao cache:', error);
+                        // Para identificar quais URLs estão falhando, adicione um log específico para cada URL
+                        urlsToCache.forEach(async (url) => {
+                            try {
+                                await fetch(url);
+                            } catch (e) {
+                                console.error('Falha ao buscar o recurso:', url, e);
+                            }
+                        });
+                    });
             })
     );
 });
@@ -27,18 +38,14 @@ self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request)
             .then(response => {
-                // Se a resposta existir no cache, retorna a resposta
                 if (response) {
                     return response;
                 }
-                // Caso contrário, faz a requisição normal
                 return fetch(event.request).then(
                     response => {
-                        // Verifica se a resposta é válida
                         if (!response || response.status !== 200 || response.type !== 'basic') {
                             return response;
                         }
-                        // Clona a resposta
                         const responseToCache = response.clone();
 
                         caches.open(CACHE_NAME)
