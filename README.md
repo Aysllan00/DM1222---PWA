@@ -28,8 +28,7 @@ Este é um projeto de aplicação web para construir times de Pokémon utilizand
 
 1. Clone o repositório:
     ```bash
-    git clone https://github.com/seu-usuario/pokemon-team-builder.git
-    cd pokemon-team-builder
+    git clone https://github.com/Aysllan00/DM1222---PWA.git
     ```
 
 2. Abra o arquivo `index.html` no navegador:
